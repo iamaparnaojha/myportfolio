@@ -7,7 +7,7 @@ const Projects = () => {
       title: "Artify - Social Media Platform",
       description: "A full-stack social media platform built using Django framework, enabling users to share and interact with content.",
       tech: ["Django", "Python", "SQLite", "Bootstrap"],
-      bgColor: "from-pink-500 to-rose-500",
+      bgColor: "from-yellow-500 to-pink-500",
       github: "https://github.com/iamaparnaojha/artify",
       demo: "https://artify-1.onrender.com/" 
     },
@@ -15,15 +15,23 @@ const Projects = () => {
       title: "Kawach - Secure Document Sharing",
       description: "A MERN stack-based secure document sharing platform developed during NCS Convergex hackathon. Won first place with team at JSS University.",
       tech: ["MongoDB", "Express.js", "React", "Node.js"],
-      bgColor: "from-blue-500 to-cyan-500",
+      bgColor: "from-yellow-500 to-cyan-500",
       github: "https://github.com/iamaparnaojha/kawach",
       demo: "https://kawach-git-main-sujal862s-projects.vercel.app/" 
+    },
+    {
+      title: "Q-ease",
+      description: "Q Ease is a smart queue management system that digitizes token generation and real-time status tracking for users and service providers.",
+      tech: ["MongoDB", "Express.js", "React", "Node.js", "Websockets", "Twilio Api"],
+      bgColor: "from-yellow-500 to-indigo-500",
+      github: "https://github.com/iamaparnaojha/Q-ease",
+      demo: "https://github.com/iamaparnaojha/Q-ease" 
     },
     {
       title: "Moon - E-commerce Platform",
       description: "A beautiful frontend e-commerce website built with HTML, CSS, and JavaScript, featuring modern UI design for women's essentials and luxury items.",
       tech: ["HTML", "CSS", "JavaScript"],
-      bgColor: "from-purple-500 to-indigo-500",
+      bgColor: "from-yellow-500 to-indigo-500",
       github: "https://github.com/iamaparnaojha/Moon",
       demo: "https://iamaparnaojha.github.io/Moon/" 
     },
@@ -31,9 +39,17 @@ const Projects = () => {
       title: "Healthcare Appointment System",
       description: "An ongoing project focused on streamlining doctor-patient appointments, making healthcare services more accessible (In Development).",
       tech: ["React", "Node.js", "MongoDB", "Express.js"],
-      bgColor: "from-green-500 to-teal-500",
+      bgColor: "from-yellow-500 to-pink-500",
       github: "https://github.com/iamaparnaojha/Healthcare",
       demo: "https://iamaparnaojha.github.io/Healthcare/" 
+    },
+    {
+      title: "Spotify Clone",
+      description: "Explored frontend basics by building a Spotify clone using HTML, CSS & JS during my learning phase",
+      tech: ["HTML", "CSS", "Javascript"],
+      bgColor: "from-yellow-500 to-cyan-500",
+      github: "https://github.com/iamaparnaojha/spotify_clonegdsc",
+      demo: "https://iamaparnaojha.github.io/spotify_clonegdsc/" 
     }
   ];
 
