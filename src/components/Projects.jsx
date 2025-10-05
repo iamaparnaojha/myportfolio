@@ -4,8 +4,17 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 const Projects = () => {
   const projects = [
     {
+      title: "CampusQuery",
+description: "An AI-powered campus assistant designed to answer student queries using GPT-4 and RAG (Retrieval-Augmented Generation) search. It provides multilingual voice support, context-aware responses, and multi-platform access via Web, WhatsApp, and Telegram. Features include an admin dashboard, automated document ingestion, and a human-in-the-loop system for improved accuracy.",
+tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Pinecone", "Azure Blob Storage", "GPT-4", "ASR", "TTS"],
+bgColor: "from-yellow-500 to-red-500",
+github: "https://github.com/iamaparnaojha/CampusQuery",
+demo: "https://github.com/iamaparnaojha/CampusQuery"
+
+    },
+    {
       title: "Artify - Social Media Platform",
-      description: "A full-stack social media platform built using Django framework, enabling users to share and interact with content.",
+      description: "A full-stack social media platform tailored for artists to showcase and share their creative work. It enables users to create profiles, upload artwork, and engage with others through likes and comments. The platform includes user authentication, content moderation, and responsive UI for a seamless experience.",
       tech: ["Django", "Python", "SQLite", "Bootstrap"],
       bgColor: "from-yellow-500 to-pink-500",
       github: "https://github.com/iamaparnaojha/artify",
@@ -13,15 +22,23 @@ const Projects = () => {
     },
     {
       title: "Kawach - Secure Document Sharing",
-      description: "A MERN stack-based secure document sharing platform developed during NCS Convergex hackathon. Won first place with team at JSS University.",
+      description: "A privacy-focused document-sharing web application built during the Convergex hackathon. Kawach emphasizes user data security and confidentiality, featuring JWT-based authentication, encrypted document handling, and secure storage using Cloudinary. Designed for seamless and safe file sharing with a responsive and intuitive UI.",
       tech: ["MongoDB", "Express.js", "React", "Node.js"],
       bgColor: "from-yellow-500 to-cyan-500",
       github: "https://github.com/iamaparnaojha/kawach",
       demo: "https://kawach-git-main-sujal862s-projects.vercel.app/" 
     },
     {
+      title: "StudyBuddy - AI Study Assistant(FlashLearn)",
+      description: "An AI-powered study assistant that helps students learn more effectively by providing personalized study resources, quizzes, and progress tracking. Built with a focus on user engagement and adaptive learning techniques.",
+      tech: ["MongoDB", "Express.js", "React", "Node.js", "Youtube Data API", "AI services"],
+      bgColor: "from-yellow-500 to-blue-500",
+      github: "https://github.com/iamaparnaojha/studybuddy",
+      demo: "https://flash-learn-ten.vercel.app/" 
+    },
+    {
       title: "Q-ease",
-      description: "Q Ease is a smart queue management system that digitizes token generation and real-time status tracking for users and service providers.",
+      description: "A smart queue management system that streamlines service waiting by digitizing token generation and providing real-time queue status for both users and service providers. Built with MERN stack, it integrates WebSockets for live updates and Twilio API for notifications, ensuring a seamless and efficient experience.",
       tech: ["MongoDB", "Express.js", "React", "Node.js", "Websockets", "Twilio Api"],
       bgColor: "from-yellow-500 to-indigo-500",
       github: "https://github.com/iamaparnaojha/Q-ease",

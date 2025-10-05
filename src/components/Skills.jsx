@@ -6,7 +6,7 @@ const Skills = () => {
   const skills = [
     {
       category: "Programming Languages",
-      items: ["C++", "C", "Python"],
+      items: ["C++", "C", "Python","Java"],
       icon: <FaPython className="text-3xl" />
     },
     {
@@ -21,12 +21,17 @@ const Skills = () => {
     },
     {
       category: "Database",
-      items: ["MongoDB"],
+      items: ["MongoDB", "Pinecone", "SQL","Firebase"],
       icon: <FaDatabase className="text-3xl" />
     },
     {
-      category: "Version Control",
-      items: ["Git & GitHub"],
+      category: "Version Control & tools",
+      items: ["Git & GitHub", "vsCode", "Postman", "Heroku", "Netlify"],
+      icon: <FaGithub className="text-3xl" />
+    },
+     {
+      category: "Other skills",
+      items: [" Data Structures and Algorithms (DSA)", "Object Oriented Programming (OOPs)", "Problem Solving (Leetcode, GFG)", "Competitive programming", "Debugging"],
       icon: <FaGithub className="text-3xl" />
     }
   ];

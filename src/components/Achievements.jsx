@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaTrophy, FaMedal, FaAward } from 'react-icons/fa';
+import { FaTrophy, FaMedal, FaAward, FaCheckCircle, FaFire, FaGithub} from 'react-icons/fa';
 
 const Achievements = () => {
   const achievements = [
@@ -17,7 +17,24 @@ const Achievements = () => {
       title: "Code Showdown DSA Contest",
       description: "Secured 7th rank in the DSA contest at BVCOE, Delhi",
       icon: <FaAward className="text-4xl text-yellow-500" />
-    }
+    },
+    {
+      title: "400+ Problems Solved",
+      description: "Solved over 400 problems across platforms like LeetCode and GeeksforGeeks",
+      icon: <FaCheckCircle className="text-4xl text-green-500" />
+    },
+    {
+      title: "300+ Days Learning Streak",
+      description: "Maintained a 300+ day consistent learning streak, demonstrating dedication and persistence",
+      icon: <FaFire className="text-4xl text-red-500" />
+    },
+    {
+  title: "Open Source Contribution",
+  description: "Contributed to open-source projects by fixing bugs, improving documentation, and submitting pull requests on GitHub; strengthened skills in version control, collaborative coding, and understanding modular codebases",
+  icon: <FaGithub className="text-4xl text-purple-500" />
+}
+
+    
   ];
 
   return (
