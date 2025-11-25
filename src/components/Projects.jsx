@@ -9,7 +9,7 @@ description: "An AI-powered campus assistant designed to answer student queries 
 tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Pinecone", "Azure Blob Storage", "GPT-4", "ASR", "TTS"],
 bgColor: "from-yellow-500 to-red-500",
 github: "https://github.com/iamaparnaojha/CampusQuery",
-demo: "https://curious-gingersnap-fcf0db.netlify.app/"
+demo: "https://comfy-kringle-957306.netlify.app/"
 
     },
     {
