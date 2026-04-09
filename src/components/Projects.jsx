@@ -9,16 +9,8 @@ description: "An AI-powered campus assistant designed to answer student queries 
 tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Pinecone", "Azure Blob Storage", "GPT-4", "ASR", "TTS"],
 bgColor: "from-yellow-500 to-red-500",
 github: "https://github.com/iamaparnaojha/CampusQuery",
-demo: "https://comfy-kringle-957306.netlify.app/"
+demo: "https://curious-gingersnap-fcf0db.netlify.app/"
 
-    },
-    {
-      title: "Artify - Social Media Platform",
-      description: "A full-stack social media platform tailored for artists to showcase and share their creative work. It enables users to create profiles, upload artwork, and engage with others through likes and comments. The platform includes user authentication, content moderation, and responsive UI for a seamless experience.",
-      tech: ["Django", "Python", "SQLite", "Bootstrap"],
-      bgColor: "from-yellow-500 to-pink-500",
-      github: "https://github.com/iamaparnaojha/artify",
-      demo: "https://artify-1.onrender.com/" 
     },
     {
       title: "Kawach - Secure Document Sharing",
@@ -29,6 +21,30 @@ demo: "https://comfy-kringle-957306.netlify.app/"
       demo: "https://kawach-git-main-sujal862s-projects.vercel.app/" 
     },
     {
+      title: "Artify - Social Media Platform",
+      description: "A full-stack social media platform tailored for artists to showcase and share their creative work. It enables users to create profiles, upload artwork, and engage with others through likes and comments. The platform includes user authentication, content moderation, and responsive UI for a seamless experience.",
+      tech: ["Django", "Python", "SQLite", "Bootstrap"],
+      bgColor: "from-yellow-500 to-black-500",
+      github: "https://github.com/iamaparnaojha/artify",
+      demo: "https://artify-1.onrender.com/" 
+    },
+    {
+      title: "SmartCalendar- Interactive calendar",
+      description: "An interactive calendar with smooth animations, reminders, favorite dates, holiday markers, dates highlighting and smart notes feature.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      bgColor: "from-yellow-500 to-pink-500",
+      github: "https://github.com/iamaparnaojha/SmartCalendar",
+      demo: "https://smart-calendar-khaki.vercel.app/" 
+    },
+     {
+      title: "Moneysphere- Personal Finance Manager",
+      description: "A personal finance management application designed to help users track their expenses, set budgets, and visualize their financial data through interactive charts and reports.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+      bgColor: "from-yellow-500 to-red-500",
+      github: "https://github.com/iamaparnaojha/Moneysphere",
+      demo: "https://moneysphere-ten.vercel.app//" 
+    },
+    {
       title: "StudyBuddy - AI Study Assistant(FlashLearn)",
       description: "An AI-powered study assistant that helps students learn more effectively by providing personalized study resources, quizzes, and progress tracking. Built with a focus on user engagement and adaptive learning techniques.",
       tech: ["MongoDB", "Express.js", "React", "Node.js", "Youtube Data API", "AI services"],
@@ -36,6 +52,15 @@ demo: "https://comfy-kringle-957306.netlify.app/"
       github: "https://github.com/iamaparnaojha/studybuddy",
       demo: "https://flash-learn-ten.vercel.app/" 
     },
+    {
+      title: "Mini Audit Trail Generator",
+      description: "A minimal full-stack app that tracks text changes and produces an audit trail of added and removed words per version.",
+      tech: ["React+vite", "Node.js", "MongoDB", "Express.js", "Tailwind CSS"],
+      bgColor: "from-yellow-500 to-green-500",
+      github: "https://github.com/iamaparnaojha/mini_audit_trail_generator",
+      demo: "https://mini-audit-trail-generator-bay.vercel.app/" 
+    },
+    
     {
       title: "Q-ease",
       description: "A smart queue management system that streamlines service waiting by digitizing token generation and providing real-time queue status for both users and service providers. Built with MERN stack, it integrates WebSockets for live updates and Twilio API for notifications, ensuring a seamless and efficient experience.",
@@ -71,69 +96,76 @@ demo: "https://comfy-kringle-957306.netlify.app/"
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          className="text-3xl font-bold text-center mb-12"
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Projects
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+            Featured Projects
+          </h2>
+          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+            A selection of my recent work, ranging from AI assistants to full-stack platforms and creative web experiments.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className={`bg-gradient-to-r ${project.bgColor} rounded-lg shadow-xl overflow-hidden`}
-              initial={{ opacity: 0, y: 20 }}
+              className="glass rounded-3xl overflow-hidden group hover:bg-white/10 transition-all duration-500 flex flex-col h-full"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
             >
-              <div className="p-6 text-white">
-                <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                <p className="mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <div className={`h-2 w-full bg-gradient-to-r ${project.bgColor}`} />
+              
+              <div className="p-8 md:p-10 flex flex-col flex-grow">
+                <div className="flex justify-between items-start mb-6">
+                  <h3 className="text-3xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="flex space-x-3">
+                    <a 
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/5 rounded-full hover:bg-white/20 text-gray-400 hover:text-white transition-all shadow-inner"
+                      title="View Code"
+                    >
+                      <FaGithub className="text-2xl" />
+                    </a>
+                    <a 
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/5 rounded-full hover:bg-white/20 text-gray-400 hover:text-white transition-all shadow-inner"
+                      title="Live Demo"
+                    >
+                      <FaExternalLinkAlt className="text-xl" />
+                    </a>
+                  </div>
+                </div>
+
+                <p className="text-gray-400 leading-relaxed mb-8 flex-grow">
+                  {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tech.map((tech, techIndex) => (
                     <span 
                       key={techIndex}
-                      className="bg-white/20 px-3 py-1 rounded-full text-sm"
+                      className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-gray-300 tracking-wider group-hover:border-white/20 transition-all"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-               {/* { <div className="flex space-x-4">
-                  <button className="flex items-center space-x-2 hover:text-gray-200 transition-colors">
-                    <FaGithub />
-                    <span>Code</span>
-                  </button>
-                  <button className="flex items-center space-x-2 hover:text-gray-200 transition-colors">
-                    <FaExternalLinkAlt />
-                    <span>Live Demo</span>
-                  </button>
-                </div> } */}
-<div className="flex space-x-4">
-    <a 
-        href={project.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center space-x-2 hover:text-gray-200 transition-colors"
-    >
-        <FaGithub className="text-xl" />
-        <span>Code</span>
-    </a>
-    <a 
-        href={project.demo}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center space-x-2 hover:text-gray-200 transition-colors"
-    >
-          <FaExternalLinkAlt className="text-xl" />
-        <span>Live Demo</span>
-    </a>
-</div>
               </div>
             </motion.div> 
           ))}

@@ -3,10 +3,17 @@ import { FaTrophy, FaMedal, FaAward, FaCheckCircle, FaFire, FaGithub} from 'reac
 
 const Achievements = () => {
   const achievements = [
-    {
-      title: "GeeksforGeeks 21 Days Challenge Winner",
+    {title: "SIH Semi-Finalist",
+      description: "Secured a spot in the semi-finals of the Smart India Hackathon (SIH) 2025, showcasing innovative problem-solving skills and teamwork",
+      icon: <FaTrophy className="text-4xl text-pink-500" />
+    },
+     {title: "844 AIR in TCS CodeVita",
+      description: "Achieved an All India Rank of 844 in the prestigious TCS CodeVita coding competition, demonstrating strong algorithmic and programming skills",
+      icon: <FaTrophy className="text-4xl text-purple-500" />
+    },
+    {title: "GeeksforGeeks 21 Days Challenge Winner",
       description: "Successfully completed and won the 21-day coding challenge on GeeksforGeeks",
-      icon: <FaTrophy className="text-4xl text-yellow-500" />
+      icon: <FaTrophy className="text-4xl text-red-500" />
     },
     {
       title: "Convergex Hackathon Winner",
@@ -15,57 +22,73 @@ const Achievements = () => {
     },
     {
       title: "Code Showdown DSA Contest",
-      description: "Secured 7th rank in the DSA contest at BVCOE, Delhi",
-      icon: <FaAward className="text-4xl text-yellow-500" />
+      description: "Runner-up in the DSA contest at BVCOE, Delhi",
+      icon: <FaAward className="text-4xl text-blue-500" />
     },
     {
-      title: "400+ Problems Solved",
-      description: "Solved over 400 problems across platforms like LeetCode and GeeksforGeeks",
+      title: "600+ Problems Solved",
+      description: "Solved over 600 problems across platforms like LeetCode and GeeksforGeeks",
       icon: <FaCheckCircle className="text-4xl text-green-500" />
     },
     {
-      title: "300+ Days Learning Streak",
-      description: "Maintained a 300+ day consistent learning streak, demonstrating dedication and persistence",
+      title: "450+ Days Learning Streak",
+      description: "Maintained a 450+ day consistent learning streak, demonstrating dedication and persistence",
       icon: <FaFire className="text-4xl text-red-500" />
     },
-    {
-  title: "Open Source Contribution",
-  description: "Contributed to open-source projects by fixing bugs, improving documentation, and submitting pull requests on GitHub; strengthened skills in version control, collaborative coding, and understanding modular codebases",
+{
+  title: "Student placement coordinator at JSSATE",
+  description: "Serving as student placement coordinater, coordinating with companies, organizing placement drives, and bridge the gap between students and recruiters to facilitate successful placements",
   icon: <FaGithub className="text-4xl text-purple-500" />
-}
-
+},
+{
+  title: "Strong academic record",
+  description: "3rd rank in my college with a overall average CGPA Of 8.8, consistently performing well in academics and maintaining a strong academic record throughout my studies",
+  icon: <FaGithub className="text-4xl text-purple-500" />
+},
     
   ];
 
   return (
-    <section id="achievements" className="py-20 bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          className="text-3xl font-bold text-center mb-12"
+    <section id="achievements" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Achievements
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+            Milestones & Recognition
+          </h2>
+          <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full mt-6" />
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800 p-6 rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
+              className="glass p-8 rounded-3xl relative group hover:bg-white/10 transition-all duration-500"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 20px 40px -20px rgba(0,0,0,0.5)"
+              }}
             >
-              <div className="flex justify-center mb-4">
-                {achievement.icon}
+              <div className="flex justify-center mb-8 relative">
+                <div className="absolute inset-0 bg-white/20 blur-2xl rounded-full scale-50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative group-hover:scale-110 transition-transform duration-500">
+                  {achievement.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-center mb-3">
+              
+              <h3 className="text-xl font-bold text-center mb-4 text-white group-hover:text-purple-400 transition-colors">
                 {achievement.title}
               </h3>
-              <p className="text-gray-400 text-center">
+              
+              <p className="text-gray-400 text-center leading-relaxed">
                 {achievement.description}
               </p>
             </motion.div>
