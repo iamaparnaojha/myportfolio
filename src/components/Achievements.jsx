@@ -26,13 +26,13 @@ const Achievements = () => {
       icon: <FaAward className="text-4xl text-blue-500" />
     },
     {
-      title: "600+ Problems Solved",
-      description: "Solved over 600 problems across platforms like LeetCode and GeeksforGeeks",
+      title: "700+ Problems Solved",
+      description: "Solved over 700 problems across platforms like LeetCode and GeeksforGeeks",
       icon: <FaCheckCircle className="text-4xl text-green-500" />
     },
     {
-      title: "450+ Days Learning Streak",
-      description: "Maintained a 450+ day consistent learning streak, demonstrating dedication and persistence",
+      title: "500+ Days Learning Streak",
+      description: "Maintained a 500+ day consistent learning streak, demonstrating dedication and persistence",
       icon: <FaFire className="text-4xl text-red-500" />
     },
 {

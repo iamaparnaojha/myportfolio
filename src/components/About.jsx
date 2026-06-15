@@ -28,7 +28,7 @@ const About = () => {
              I’m <span className="text-white font-semibold">Aparna Ojha</span>, a B.Tech (Information Technology) student at JSS Academy of Technical Education, passionate about building scalable web applications and exploring AI-driven solutions. I enjoy turning ideas into real-world products using modern technologies.
             </p>
             <p>
-              I have a strong foundation in <span className="text-purple-400">Data Structures and Algorithms</span>, with 600+ problems solved and a consistent 400+ day coding streak. My core tech stack includes <span className="text-cyan-400">MERN</span> (MongoDB, Express.js, React, Node.js) along with tools like Next.js, TypeScript, and cloud services.
+              I have a strong foundation in <span className="text-purple-400">Data Structures and Algorithms</span>, with 700+ problems solved and a consistent 500+ day coding streak. My core tech stack includes <span className="text-cyan-400">MERN</span> (MongoDB, Express.js, React, Node.js), Next.js, and TypeScript along with generative AI tools like RAG, LangChain, and Hugging Face. I’m also proficient in Python, Java, and C++.
             </p>
             <p>
               I actively participate in hackathons and coding contests, achieving milestones such as <span className="text-white font-medium">SIH Semi-Finalist</span> and <span className="text-white font-medium">AIR 844 in TCS CodeVita</span>. I’m always eager to learn, adapt, and grow as a developer, with a keen interest in AI systems and scalable architectures.

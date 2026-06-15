@@ -28,7 +28,15 @@ demo: "https://curious-gingersnap-fcf0db.netlify.app/"
       github: "https://github.com/iamaparnaojha/artify",
       demo: "https://artify-1.onrender.com/" 
     },
-    {
+     {
+      title: "StudyBuddy - AI Study Assistant(FlashLearn)",
+      description: "An AI-powered study assistant that helps students learn more effectively by providing personalized study resources, quizzes, and progress tracking. Built with a focus on user engagement and adaptive learning techniques.",
+      tech: ["MongoDB", "Express.js", "React", "Node.js", "Youtube Data API", "AI services"],
+      bgColor: "from-yellow-500 to-blue-500",
+      github: "https://github.com/iamaparnaojha/studybuddy",
+      demo: "https://flash-learn-ten.vercel.app/" 
+    },
+{
       title: "SmartCalendar- Interactive calendar",
       description: "An interactive calendar with smooth animations, reminders, favorite dates, holiday markers, dates highlighting and smart notes feature.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -44,14 +52,7 @@ demo: "https://curious-gingersnap-fcf0db.netlify.app/"
       github: "https://github.com/iamaparnaojha/Moneysphere",
       demo: "https://moneysphere-ten.vercel.app//" 
     },
-    {
-      title: "StudyBuddy - AI Study Assistant(FlashLearn)",
-      description: "An AI-powered study assistant that helps students learn more effectively by providing personalized study resources, quizzes, and progress tracking. Built with a focus on user engagement and adaptive learning techniques.",
-      tech: ["MongoDB", "Express.js", "React", "Node.js", "Youtube Data API", "AI services"],
-      bgColor: "from-yellow-500 to-blue-500",
-      github: "https://github.com/iamaparnaojha/studybuddy",
-      demo: "https://flash-learn-ten.vercel.app/" 
-    },
+   
     {
       title: "Mini Audit Trail Generator",
       description: "A minimal full-stack app that tracks text changes and produces an audit trail of added and removed words per version.",
@@ -60,7 +61,7 @@ demo: "https://curious-gingersnap-fcf0db.netlify.app/"
       github: "https://github.com/iamaparnaojha/mini_audit_trail_generator",
       demo: "https://mini-audit-trail-generator-bay.vercel.app/" 
     },
-    
+  
     {
       title: "Q-ease",
       description: "A smart queue management system that streamlines service waiting by digitizing token generation and providing real-time queue status for both users and service providers. Built with MERN stack, it integrates WebSockets for live updates and Twilio API for notifications, ensuring a seamless and efficient experience.",
@@ -78,13 +79,21 @@ demo: "https://curious-gingersnap-fcf0db.netlify.app/"
       demo: "https://iamaparnaojha.github.io/Moon/" 
     },
     {
-      title: "Healthcare Appointment System",
-      description: "An ongoing project focused on streamlining doctor-patient appointments, making healthcare services more accessible (In Development).",
-      tech: ["React", "Node.js", "MongoDB", "Express.js"],
-      bgColor: "from-yellow-500 to-pink-500",
-      github: "https://github.com/iamaparnaojha/Healthcare",
-      demo: "https://iamaparnaojha.github.io/Healthcare/" 
-    },
+  title: "CoWrite",
+  description: "An AI-powered collaborative writing platform that helps users create, edit, and refine content efficiently with a clean editor, real-time assistance, and productivity-focused workflows.",
+  tech: ["React", "Node.js", "MongoDB", "Express.js"],
+  bgColor: "from-violet-500 to-purple-600",
+  github: "https://github.com/iamaparnaojha/CoWrite",
+  demo: "https://co-write-sooty.vercel.app/"
+},
+{
+  title: "FlowAxis",
+  description: "A modern workflow and project management application designed to streamline task organization, progress tracking, and team collaboration through an intuitive and responsive interface.",
+  tech: ["React", "Node.js", "MongoDB", "Express.js"],
+  bgColor: "from-cyan-500 to-blue-600",
+  github: "https://github.com/iamaparnaojha/Flowaxis",
+  demo: "https://flowaxis-lyart.vercel.app/"
+},
     {
       title: "Spotify Clone",
       description: "Explored frontend basics by building a Spotify clone using HTML, CSS & JS during my learning phase",
