@@ -31,14 +31,8 @@ const Skills = () => {
       color: "from-purple-500 to-indigo-500"
     },
     {
-      category: "Cloud and DevOps",
-      items: ["Azure Blob", "Cloudinary", "Docker"],
-      icon: <FaCloud className="text-3xl" />,
-      color: "from-sky-500 to-blue-600"
-    },
-    {
-      category: "Version Control & Deployment Tools",
-      items: ["Git", "GitHub", "Postman", "JSON", "VS Code", "Vercel", "Netlify", "Render"],
+      category: "Version Control & Deployment Tools/ Cloud and DevOps",
+      items: ["Git", "GitHub", "Postman", "JSON", "VS Code", "Vercel", "Netlify", "Render", "Azure Blob Storage", "AWS S3", "Docker", "CI/CD Pipelines", "Cloudinary"],
       icon: <FaTools className="text-3xl" />,
       color: "from-orange-500 to-amber-500"
     },

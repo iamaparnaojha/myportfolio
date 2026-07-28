@@ -42,7 +42,7 @@ const Achievements = () => {
 },
 {
   title: "Strong academic record",
-  description: "3rd rank in my college with a overall average CGPA Of 8.8, consistently performing well in academics and maintaining a strong academic record throughout my studies",
+  description: "3rd rank in my college with a overall average CGPA Of 8.9; 1st rank in 6th semester scoring 9.5 SGPA, consistently performing well in academics and maintaining a strong academic record throughout my studies",
   icon: <FaGithub className="text-4xl text-purple-500" />
 },
     

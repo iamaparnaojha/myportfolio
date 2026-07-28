@@ -13,6 +13,23 @@ demo: "https://curious-gingersnap-fcf0db.netlify.app/"
 
     },
     {
+  title: "CodeCompassAI",
+  description: "An AI-powered developer onboarding platform that analyzes GitHub repositories and generates personalized learning roadmaps using Google Gemini. It helps developers understand unfamiliar codebases faster through AI-generated explanations, difficulty-ranked entry points, interactive dashboards, and voice-guided mentorship with smart caching for improved performance.",
+  tech: [
+    "Next.js 14",
+    "React.js",
+    "Hono.js",
+    "MongoDB Atlas",
+    "Google Gemini API",
+    "ElevenLabs TTS",
+    "Docker",
+    "Tailwind CSS"
+  ],
+  bgColor: "from-blue-600 to-cyan-500",
+  github: "https://github.com/iamaparnaojha/CodeCompassAI",
+  demo: "https://code-compass-ai-vert.vercel.app/"
+},
+    {
       title: "Kawach - Secure Document Sharing",
       description: "A privacy-focused document-sharing web application built during the Convergex hackathon. Kawach emphasizes user data security and confidentiality, featuring JWT-based authentication, encrypted document handling, and secure storage using Cloudinary. Designed for seamless and safe file sharing with a responsive and intuitive UI.",
       tech: ["MongoDB", "Express.js", "React", "Node.js"],
@@ -28,6 +45,23 @@ demo: "https://curious-gingersnap-fcf0db.netlify.app/"
       github: "https://github.com/iamaparnaojha/artify",
       demo: "https://artify-1.onrender.com/" 
     },
+    {
+  title: "NextHire - AI Career Platform",
+  description: "An AI-powered career platform that helps job seekers optimize resumes, identify skill gaps, and prepare for interviews. It features ATS resume analysis, AI-driven skill recommendations, personalized career roadmaps, resume parsing, and interactive interview preparation with a modern dashboard for tracking progress.",
+  tech: [
+    "FastAPI",
+    "Python",
+    "MongoDB",
+    "Docker",
+    "Google Gemini API",
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  bgColor: "from-emerald-500 to-cyan-500",
+  github: "https://github.com/iamaparnaojha/NextHire",
+  demo: "https://nexthire-aparna.duckdns.org/"
+},
      {
       title: "StudyBuddy - AI Study Assistant(FlashLearn)",
       description: "An AI-powered study assistant that helps students learn more effectively by providing personalized study resources, quizzes, and progress tracking. Built with a focus on user engagement and adaptive learning techniques.",

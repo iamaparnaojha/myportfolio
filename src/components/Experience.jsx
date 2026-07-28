@@ -3,24 +3,76 @@ import { FaCodeBranch, FaLaptopCode, FaCalendarAlt } from 'react-icons/fa';
 
 const Experience = () => {
   const experiences = [
-    {
-      role: "Freelancer Web Developer",
-      company: "Self-Employed",
-      period: "2023 - Present",
-      description: "Designing and developing custom web solutions for diverse clients, focusing on responsive design, performance optimization, and seamless user experiences. Specializing in modern frameworks like React and Next.js.",
-      icon: <FaLaptopCode className="text-2xl" />,
-      color: "from-purple-500 to-indigo-500",
-      skills: ["React", "Next.js", "Tailwind CSS", "Client Relations"]
-    },
-    {
-      role: "Open Source Contributor",
-      company: "GitHub Community",
-      period: "2023 - Present",
-      description: "Actively contributing to various open-source projects, fixing bugs, and implementing new features. Collaborating with developers worldwide to improve software quality and accessibility.",
-      icon: <FaCodeBranch className="text-2xl" />,
-      color: "from-blue-500 to-cyan-500",
-      skills: ["Git", "GitHub", "Collaborative Development", "Documentation"]
-    }
+   {
+  role: "Software Engineering Intern",
+  company: "Site Guru",
+  period: "July 2026 - Present",
+  description:
+    "Developing scalable full-stack applications using Next.js, Node.js, SQL, and Agile/SDLC practices. Building secure REST APIs, RBAC-based authentication, real-time messaging with Socket.IO, responsive dashboards, OTP authentication, and optimizing application performance.",
+  icon: <FaLaptopCode className="text-2xl" />,
+  color: "from-emerald-500 to-teal-500",
+  skills: [
+    "Next.js",
+    "Node.js",
+    "SQL",
+    "REST APIs",
+    "Socket.IO",
+    "RBAC",
+    "SSR",
+    "OTP Authentication",
+    "Agile",
+    "SDLC"
+  ]
+},
+{
+  role: "Student Placement Coordinator",
+  company: "JSS Academy of Technical Education",
+  period: "Feb 2026 - Present",
+  description:
+    "Coordinating placement activities, assisting recruiters and students throughout the hiring process, managing communication, organizing campus recruitment drives, and collaborating with placement teams to ensure smooth execution of recruitment events.",
+  icon: <FaCalendarAlt className="text-2xl" />,
+  color: "from-indigo-500 to-violet-500",
+  skills: [
+    "Communication",
+    "Team Management",
+    "Event Coordination",
+    "Leadership"
+  ]
+},
+{
+  role: "Gen AI & Cloud Computing Intern",
+  company: "BharatCares (IBM SkillsBuild)",
+  period: "Jun 2026 - Jul 2026",
+  description:
+    "Completed a 6-week internship focused on Generative AI, Prompt Engineering, IBM Cloud, and cloud-native application development. Built AI-powered solutions, explored LLM workflows, and gained hands-on experience with real-world AI implementation through guided projects and masterclasses.",
+  icon: <FaCodeBranch className="text-2xl" />,
+  color: "from-orange-500 to-red-500",
+  skills: [
+    "Generative AI",
+    "Prompt Engineering",
+    "IBM Cloud",
+    "Cloud Computing"
+  ]
+},
+{
+  role: "Freelance Full Stack Developer",
+  company: "Self-Employed",
+  period: "Oct 2025 - Mar 2026",
+  description:
+    "Designed, developed, and deployed MERN Stack and Next.js applications including portfolio websites, event registration platforms, and AI-powered RAG applications. Integrated LLM APIs, vector databases, SEO optimization, and database-backed workflows for client projects.",
+  icon: <FaCodeBranch className="text-2xl" />,
+  color: "from-purple-500 to-pink-500",
+  skills: [
+    "MERN Stack",
+    "Next.js",
+    "MongoDB",
+    "React",
+    "Node.js",
+    "RAG",
+    "LLMs",
+    "SEO"
+  ]
+}
   ];
 
   return (

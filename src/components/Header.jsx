@@ -58,7 +58,7 @@ const Header = () => {
                     rel="noopener noreferrer"
                     className="group relative inline-flex items-center px-3 py-1 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 border border-white/10 hover:border-purple-500"
                   >
-                    <span className="text-white">Web Developer</span>
+                    <span className="text-white">Software Developer</span>
                     <span className="absolute -top-1 -right-1 w-2 h-2 bg-purple-500 rounded-full animate-ping opacity-75" />
                   </a>
                   <span className="hidden md:inline text-purple-500">|</span>
