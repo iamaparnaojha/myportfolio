@@ -3,9 +3,8 @@
  * Experience dates and role copy follow the 5 Oct 2026 resume.
  * Earlier portfolio entries (placement coordination, freelance work,
  * additional projects, the GeeksforGeeks challenge) are kept.
- * GATE 2026 and the IBM / Google certificates come from the 25 Aug 2026 resume.
- * Conflicting academic rank: the later resume says 3rd in Information Technology
- * and 1st in semester 6 (9.48 SGPA). That version is used here.
+ * GATE 2026 and the IBM / Google certificates come from the August 2026 resume.
+ * Academic rank: 1st at college level and department level, topping the full 3rd year batch.
  */
 
 export const profile = {
@@ -687,9 +686,9 @@ export const awards = [
     detail: "Completed and won the 21-day coding challenge.",
   },
   {
-    title: "Academic rank",
+    title: "College topper, 3rd year",
     detail:
-      "3rd rank in Information Technology. 1st rank in the 6th semester with 9.48 SGPA.",
+      "1st rank at college level and department level. Topped the entire 3rd year batch.",
   },
   {
     title: "GATE 2026 qualified",
@@ -703,8 +702,8 @@ export const education = {
   period: "2023 — 2027",
   cgpa: "8.9 / 10",
   notes: [
-    "3rd rank in Information Technology.",
-    "1st rank in semester 6, with 9.48 SGPA.",
+    "1st rank at college level and department level.",
+    "Topped the entire 3rd year batch.",
     "GATE 2026 qualified.",
   ],
 };

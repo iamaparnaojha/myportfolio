@@ -97,7 +97,7 @@ def draw_resume(path: Path) -> None:
     y -= 11
     text("B.Tech, Information Technology  ·  CGPA 8.9/10", left, y, "Calibri", 8.6)
     y -= 11
-    text("3rd rank, Information Technology  ·  1st rank, 6th semester (9.48 SGPA)  ·  GATE 2026 qualified", left, y, "Calibri", 8.4, MUTED)
+    text("1st rank, college and department level  ·  Topped the entire 3rd year batch  ·  GATE 2026 qualified", left, y, "Calibri", 8.4, MUTED)
 
     heading("Experience")
     roles = [

@@ -30,7 +30,7 @@ export default function Header() {
       <section id="top" className="hero">
         <div className="engine-grid" aria-hidden="true" />
         <div className="hero-glow" aria-hidden="true" />
-        <div className="wrap relative z-[2] w-full">
+        <div className="wrap relative z-[2] w-full text-center">
           <p className="kicker mb-6">Software engineer · Full-stack · AI systems</p>
           <h1 className="display text-[clamp(4.4rem,13vw,8.6rem)]">
             <RevealLine>Aparna</RevealLine>
@@ -39,45 +39,43 @@ export default function Header() {
             </RevealLine>
           </h1>
 
-          <div className="mt-8 grid items-end gap-8 lg:grid-cols-[minmax(0,42rem)_auto]">
-            <div>
-              <p className="display text-[clamp(1.8rem,3.4vw,2.7rem)] leading-[1.05] text-ivory">
-                {profile.headline}
-              </p>
-              <p className="display mt-1 text-[clamp(1.8rem,3.4vw,2.7rem)] italic leading-[1.05] text-[color:var(--gold)]">
-                {profile.subhead}
-              </p>
-              <p className="muted mt-6 max-w-xl text-base md:text-lg">{profile.intro}</p>
+          <div className="mx-auto mt-8 max-w-3xl">
+            <p className="display text-[clamp(1.8rem,3.4vw,2.7rem)] leading-[1.05] text-ivory">
+              {profile.headline}
+            </p>
+            <p className="display mt-1 text-[clamp(1.8rem,3.4vw,2.7rem)] italic leading-[1.05] text-[color:var(--gold)]">
+              {profile.subhead}
+            </p>
+            <p className="muted mx-auto mt-6 max-w-xl text-base md:text-lg">{profile.intro}</p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Magnetic className="btn btn-primary" href="#projects">
-                  Explore Projects
-                </Magnetic>
-                <Magnetic className="btn btn-ghost" href="#contact">
-                  Contact Me
-                </Magnetic>
-                <Magnetic className="btn btn-ghost" href={profile.resume} target="_blank" rel="noreferrer">
-                  Resume
-                </Magnetic>
-              </div>
-
-              <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2">
-                {socials.map((item) => (
-                  <li key={item.label}>
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm text-[color:var(--muted)] underline decoration-transparent underline-offset-4 transition hover:text-ivory hover:decoration-[color:var(--violet)]"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Magnetic className="btn btn-primary" href="#projects">
+                Explore Projects
+              </Magnetic>
+              <Magnetic className="btn btn-ghost" href="#contact">
+                Contact Me
+              </Magnetic>
+              <Magnetic className="btn btn-ghost" href={profile.resume} target="_blank" rel="noreferrer">
+                Resume
+              </Magnetic>
             </div>
 
-            <p className="max-w-xs border-l border-[color:var(--line)] pl-4 text-sm leading-relaxed text-[color:var(--muted)]">
+            <ul className="mt-7 flex flex-wrap justify-center gap-x-5 gap-y-2">
+              {socials.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm text-[color:var(--muted)] underline decoration-transparent underline-offset-4 transition hover:text-ivory hover:decoration-[color:var(--violet)]"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-[color:var(--muted)]">
               <span className="mb-1 block text-[color:var(--gold)]">Currently</span>
               {profile.availability}
               <span className="mt-3 block">B.Tech IT · JSSATE Noida · Class of 2027</span>
