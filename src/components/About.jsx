@@ -1,43 +1,62 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from "framer-motion";
+import { about } from "../data/portfolio";
+import SectionHeading from "./SectionHeading";
 
-const About = () => {
+export default function About() {
+  const reduce = useReducedMotion();
+
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-6">
-            About Me
-          </h2>
-          <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full" />
-        </motion.div>
+    <section id="about" className="section">
+      <div className="wrap">
+        <SectionHeading index="01" kicker="About" title="Engineering, with a point of view.">
+          A software engineer who likes the hard part to be visible: the system, the interface, and the reason it should exist.
+        </SectionHeading>
 
-        <motion.div 
-          className="glass max-w-4xl mx-auto p-12 rounded-[40px] shadow-2xl relative"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="space-y-6 text-lg text-gray-300 leading-relaxed text-center md:text-left">
-            <p>
-             I’m <span className="text-white font-semibold">Aparna Ojha</span>, a B.Tech (Information Technology) student at JSS Academy of Technical Education, passionate about building scalable web applications and exploring AI-driven solutions. I enjoy turning ideas into real-world products using modern technologies.
-            </p>
-            <p>
-              I have a strong foundation in <span className="text-purple-400">Data Structures and Algorithms</span>, with 700+ problems solved and a consistent 500+ day coding streak. My core tech stack includes <span className="text-cyan-400">MERN</span> (MongoDB, Express.js, React, Node.js), Next.js, and TypeScript along with generative AI tools like RAG, LangChain, and Hugging Face. I’m also proficient in Python, Java, and C++.
-            </p>
-            <p>
-              I actively participate in hackathons and coding contests, achieving milestones such as <span className="text-white font-medium">SIH Semi-Finalist</span> and <span className="text-white font-medium">AIR 844 in TCS CodeVita</span>. I’m always eager to learn, adapt, and grow as a developer, with a keen interest in AI systems and scalable architectures.
-            </p>
-          </div>
-        </motion.div>
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_280px]">
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10% 0px" }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className="space-y-5 text-base leading-relaxed text-[color:var(--muted)] md:text-lg">
+              {about.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+              ))}
+            </div>
+            <dl className="mt-8 grid gap-px border border-[color:var(--line)] bg-[color:var(--line)] sm:grid-cols-2">
+              {about.facts.map((fact) => (
+                <div key={fact.label} className="bg-[color:var(--ink)] px-4 py-4">
+                  <dt className="kicker">{fact.label}</dt>
+                  <dd className="mt-2 text-ivory">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </motion.div>
+
+          <motion.figure
+            className="portrait panel mx-auto w-full max-w-[280px] lg:max-w-none"
+            initial={reduce ? false : { opacity: 0, y: 16 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+          >
+            <img
+              src="/photo.jpg"
+              alt="Portrait of Aparna Ojha"
+              width="1200"
+              height="1600"
+              loading="lazy"
+              decoding="async"
+              className="aspect-[3/4]"
+            />
+            <figcaption className="flex items-center justify-between px-3 py-2 text-xs uppercase tracking-[0.16em] text-[color:var(--muted)]">
+              <span>Aparna Ojha</span>
+              <span>Noida</span>
+            </figcaption>
+          </motion.figure>
+        </div>
       </div>
     </section>
   );
-};
-
-export default About;
+}

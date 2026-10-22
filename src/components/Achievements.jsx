@@ -1,102 +1,117 @@
-import { motion } from 'framer-motion';
-import { FaTrophy, FaMedal, FaAward, FaCheckCircle, FaFire, FaGithub} from 'react-icons/fa';
+import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
+import { awards, profiles, stats } from "../data/portfolio";
+import SectionHeading from "./SectionHeading";
 
-const Achievements = () => {
-  const achievements = [
-    {title: "SIH Semi-Finalist",
-      description: "Secured a spot in the semi-finals of the Smart India Hackathon (SIH) 2025, showcasing innovative problem-solving skills and teamwork",
-      icon: <FaTrophy className="text-4xl text-pink-500" />
-    },
-     {title: "844 AIR in TCS CodeVita",
-      description: "Achieved an All India Rank of 844 in the prestigious TCS CodeVita coding competition, demonstrating strong algorithmic and programming skills",
-      icon: <FaTrophy className="text-4xl text-purple-500" />
-    },
-    {title: "GeeksforGeeks 21 Days Challenge Winner",
-      description: "Successfully completed and won the 21-day coding challenge on GeeksforGeeks",
-      icon: <FaTrophy className="text-4xl text-red-500" />
-    },
-    {
-      title: "Convergex Hackathon Winner",
-      description: "First place at JSS University hackathon with innovative secure document sharing solution",
-      icon: <FaMedal className="text-4xl text-yellow-500" />
-    },
-    {
-      title: "Code Showdown DSA Contest",
-      description: "Runner-up in the DSA contest at BVCOE, Delhi",
-      icon: <FaAward className="text-4xl text-blue-500" />
-    },
-    {
-      title: "700+ Problems Solved",
-      description: "Solved over 700 problems across platforms like LeetCode and GeeksforGeeks",
-      icon: <FaCheckCircle className="text-4xl text-green-500" />
-    },
-    {
-      title: "500+ Days Learning Streak",
-      description: "Maintained a 500+ day consistent learning streak, demonstrating dedication and persistence",
-      icon: <FaFire className="text-4xl text-red-500" />
-    },
-{
-  title: "Student placement coordinator at JSSATE",
-  description: "Serving as student placement coordinater, coordinating with companies, organizing placement drives, and bridge the gap between students and recruiters to facilitate successful placements",
-  icon: <FaGithub className="text-4xl text-purple-500" />
-},
-{
-  title: "Strong academic record",
-  description: "3rd rank in my college with a overall average CGPA Of 8.9; 1st rank in 6th semester scoring 9.5 SGPA, consistently performing well in academics and maintaining a strong academic record throughout my studies",
-  icon: <FaGithub className="text-4xl text-purple-500" />
-},
-    
-  ];
+function useCount(target, active) {
+  const reduce = useReducedMotion();
+  const [value, setValue] = useState(reduce ? target : 0);
+
+  useEffect(() => {
+    if (target == null) return undefined;
+    if (!active || reduce) {
+      setValue(target);
+      return undefined;
+    }
+    const duration = 900;
+    const started = performance.now();
+    let frame = 0;
+    const tick = (now) => {
+      const progress = Math.min(1, (now - started) / duration);
+      const eased = 1 - (1 - progress) ** 3;
+      setValue(Math.round(target * eased));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [active, reduce, target]);
+
+  return value;
+}
+
+function Stat({ stat, active }) {
+  const counted = useCount(stat.value, active);
+  return (
+    <div className="border-t border-[color:var(--line)] pt-4">
+      <p className="stat-value">
+        {stat.display ?? (
+          <>
+            {stat.prefix}
+            {counted}
+            {stat.suffix}
+          </>
+        )}
+      </p>
+      <p className="muted mt-2 text-sm">{stat.label}</p>
+    </div>
+  );
+}
+
+export default function Achievements() {
+  const ref = useRef(null);
+  const [active, setActive] = useState(false);
+  const leetcode = profiles.find((item) => item.label === "LeetCode");
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="achievements" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-            Milestones & Recognition
-          </h2>
-          <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full mt-6" />
-        </motion.div>
+    <section id="achievements" className="section">
+      <div className="wrap">
+        <SectionHeading index="05" kicker="Achievements" title="Proof, not adjectives.">
+          Ranks, streaks, and hackathon results.
+        </SectionHeading>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {achievements.map((achievement, index) => (
-            <motion.div
-              key={index}
-              className="glass p-8 rounded-3xl relative group hover:bg-white/10 transition-all duration-500"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ 
-                scale: 1.02,
-                boxShadow: "0 20px 40px -20px rgba(0,0,0,0.5)"
-              }}
-            >
-              <div className="flex justify-center mb-8 relative">
-                <div className="absolute inset-0 bg-white/20 blur-2xl rounded-full scale-50 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative group-hover:scale-110 transition-transform duration-500">
-                  {achievement.icon}
-                </div>
-              </div>
-              
-              <h3 className="text-xl font-bold text-center mb-4 text-white group-hover:text-purple-400 transition-colors">
-                {achievement.title}
-              </h3>
-              
-              <p className="text-gray-400 text-center leading-relaxed">
-                {achievement.description}
-              </p>
-            </motion.div>
+        <div ref={ref} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          {stats.map((stat) => (
+            <Stat key={stat.label} stat={stat} active={active} />
           ))}
         </div>
+
+        <div className="mt-12">
+          {awards.map((award, index) => (
+            <article key={award.title} className="award">
+              <p className="kicker pt-1">{String(index + 1).padStart(2, "0")}</p>
+              <div>
+                <h3 className="text-lg text-ivory md:text-xl">{award.title}</h3>
+                <p className="muted mt-1 text-sm md:text-base">{award.detail}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <figure className="mt-14">
+          <img
+            src="/hero.png"
+            alt="Saved LeetCode snapshot for iamaparnaojha showing 702 problems solved, a 500-day badge, and contest rating 1,835"
+            width="1058"
+            height="741"
+            loading="lazy"
+            decoding="async"
+            className="leetcode-shot"
+          />
+          <figcaption className="muted mt-3 text-sm">
+            A snapshot saved with this portfolio, not a live feed.{" "}
+            <a className="text-ivory underline underline-offset-4" href={leetcode.href} target="_blank" rel="noreferrer">
+              Open the LeetCode profile
+            </a>
+            .
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
-};
-
-export default Achievements;
+}

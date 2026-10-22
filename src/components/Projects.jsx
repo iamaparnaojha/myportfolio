@@ -1,221 +1,206 @@
-import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { useEffect, useId, useRef, useState } from "react";
+import { projectFilters, projects } from "../data/portfolio";
+import SectionHeading from "./SectionHeading";
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "CampusQuery",
-description: "An AI-powered campus assistant designed to answer student queries using GPT-4 and RAG (Retrieval-Augmented Generation) search. It provides multilingual voice support, context-aware responses, and multi-platform access via Web, WhatsApp, and Telegram. Features include an admin dashboard, automated document ingestion, and a human-in-the-loop system for improved accuracy.",
-tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Pinecone", "Azure Blob Storage", "GPT-4", "ASR", "TTS"],
-bgColor: "from-yellow-500 to-red-500",
-github: "https://github.com/iamaparnaojha/CampusQuery",
-demo: "https://curious-gingersnap-fcf0db.netlify.app/"
+function Visual({ project }) {
+  return (
+    <div className="project-visual" style={{ background: project.wash }}>
+      <div className={`absolute inset-0 motif-${project.motif}`} aria-hidden="true" />
+      <span className="absolute left-4 top-4 z-[1] text-[10px] uppercase tracking-[0.2em] text-ivory/85">
+        {project.category}
+      </span>
+      {project.featured ? (
+        <span className="absolute right-4 top-4 z-[1] text-[10px] uppercase tracking-[0.2em] text-[color:var(--gold)]">
+          Featured
+        </span>
+      ) : null}
+      <span className="mark" aria-hidden="true">
+        {project.mark}
+      </span>
+    </div>
+  );
+}
 
-    },
-    {
-  title: "CodeCompassAI",
-  description: "An AI-powered developer onboarding platform that analyzes GitHub repositories and generates personalized learning roadmaps using Google Gemini. It helps developers understand unfamiliar codebases faster through AI-generated explanations, difficulty-ranked entry points, interactive dashboards, and voice-guided mentorship with smart caching for improved performance.",
-  tech: [
-    "Next.js 14",
-    "React.js",
-    "Hono.js",
-    "MongoDB Atlas",
-    "Google Gemini API",
-    "ElevenLabs TTS",
-    "Docker",
-    "Tailwind CSS"
-  ],
-  bgColor: "from-blue-600 to-cyan-500",
-  github: "https://github.com/iamaparnaojha/CodeCompassAI",
-  demo: "https://code-compass-ai-vert.vercel.app/"
-},
-    {
-      title: "Kawach - Secure Document Sharing",
-      description: "A privacy-focused document-sharing web application built during the Convergex hackathon. Kawach emphasizes user data security and confidentiality, featuring JWT-based authentication, encrypted document handling, and secure storage using Cloudinary. Designed for seamless and safe file sharing with a responsive and intuitive UI.",
-      tech: ["MongoDB", "Express.js", "React", "Node.js"],
-      bgColor: "from-yellow-500 to-cyan-500",
-      github: "https://github.com/iamaparnaojha/kawach",
-      demo: "https://kawach-git-main-sujal862s-projects.vercel.app/" 
-    },
-    {
-      title: "Artify - Social Media Platform",
-      description: "A full-stack social media platform tailored for artists to showcase and share their creative work. It enables users to create profiles, upload artwork, and engage with others through likes and comments. The platform includes user authentication, content moderation, and responsive UI for a seamless experience.",
-      tech: ["Django", "Python", "SQLite", "Bootstrap"],
-      bgColor: "from-yellow-500 to-black-500",
-      github: "https://github.com/iamaparnaojha/artify",
-      demo: "https://artify-1.onrender.com/" 
-    },
-    {
-  title: "NextHire - AI Career Platform",
-  description: "An AI-powered career platform that helps job seekers optimize resumes, identify skill gaps, and prepare for interviews. It features ATS resume analysis, AI-driven skill recommendations, personalized career roadmaps, resume parsing, and interactive interview preparation with a modern dashboard for tracking progress.",
-  tech: [
-    "FastAPI",
-    "Python",
-    "MongoDB",
-    "Docker",
-    "Google Gemini API",
-    "HTML",
-    "CSS",
-    "JavaScript"
-  ],
-  bgColor: "from-emerald-500 to-cyan-500",
-  github: "https://github.com/iamaparnaojha/NextHire",
-  demo: "https://nexthire-aparna.duckdns.org/"
-},
-     {
-      title: "StudyBuddy - AI Study Assistant(FlashLearn)",
-      description: "An AI-powered study assistant that helps students learn more effectively by providing personalized study resources, quizzes, and progress tracking. Built with a focus on user engagement and adaptive learning techniques.",
-      tech: ["MongoDB", "Express.js", "React", "Node.js", "Youtube Data API", "AI services"],
-      bgColor: "from-yellow-500 to-blue-500",
-      github: "https://github.com/iamaparnaojha/studybuddy",
-      demo: "https://flash-learn-ten.vercel.app/" 
-    },
-{
-      title: "SmartCalendar- Interactive calendar",
-      description: "An interactive calendar with smooth animations, reminders, favorite dates, holiday markers, dates highlighting and smart notes feature.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-      bgColor: "from-yellow-500 to-pink-500",
-      github: "https://github.com/iamaparnaojha/SmartCalendar",
-      demo: "https://smart-calendar-khaki.vercel.app/" 
-    },
-     {
-      title: "Moneysphere- Personal Finance Manager",
-      description: "A personal finance management application designed to help users track their expenses, set budgets, and visualize their financial data through interactive charts and reports.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-      bgColor: "from-yellow-500 to-red-500",
-      github: "https://github.com/iamaparnaojha/Moneysphere",
-      demo: "https://moneysphere-ten.vercel.app//" 
-    },
-   
-    {
-      title: "Mini Audit Trail Generator",
-      description: "A minimal full-stack app that tracks text changes and produces an audit trail of added and removed words per version.",
-      tech: ["React+vite", "Node.js", "MongoDB", "Express.js", "Tailwind CSS"],
-      bgColor: "from-yellow-500 to-green-500",
-      github: "https://github.com/iamaparnaojha/mini_audit_trail_generator",
-      demo: "https://mini-audit-trail-generator-bay.vercel.app/" 
-    },
-  
-    {
-      title: "Q-ease",
-      description: "A smart queue management system that streamlines service waiting by digitizing token generation and providing real-time queue status for both users and service providers. Built with MERN stack, it integrates WebSockets for live updates and Twilio API for notifications, ensuring a seamless and efficient experience.",
-      tech: ["MongoDB", "Express.js", "React", "Node.js", "Websockets", "Twilio Api"],
-      bgColor: "from-yellow-500 to-indigo-500",
-      github: "https://github.com/iamaparnaojha/Q-ease",
-      demo: "https://github.com/iamaparnaojha/Q-ease" 
-    },
-    {
-      title: "Moon - E-commerce Platform",
-      description: "A beautiful frontend e-commerce website built with HTML, CSS, and JavaScript, featuring modern UI design for women's essentials and luxury items.",
-      tech: ["HTML", "CSS", "JavaScript"],
-      bgColor: "from-yellow-500 to-indigo-500",
-      github: "https://github.com/iamaparnaojha/Moon",
-      demo: "https://iamaparnaojha.github.io/Moon/" 
-    },
-    {
-  title: "CoWrite",
-  description: "An AI-powered collaborative writing platform that helps users create, edit, and refine content efficiently with a clean editor, real-time assistance, and productivity-focused workflows.",
-  tech: ["React", "Node.js", "MongoDB", "Express.js"],
-  bgColor: "from-violet-500 to-purple-600",
-  github: "https://github.com/iamaparnaojha/CoWrite",
-  demo: "https://co-write-sooty.vercel.app/"
-},
-{
-  title: "FlowAxis",
-  description: "A modern workflow and project management application designed to streamline task organization, progress tracking, and team collaboration through an intuitive and responsive interface.",
-  tech: ["React", "Node.js", "MongoDB", "Express.js"],
-  bgColor: "from-cyan-500 to-blue-600",
-  github: "https://github.com/iamaparnaojha/Flowaxis",
-  demo: "https://flowaxis-lyart.vercel.app/"
-},
-    {
-      title: "Spotify Clone",
-      description: "Explored frontend basics by building a Spotify clone using HTML, CSS & JS during my learning phase",
-      tech: ["HTML", "CSS", "Javascript"],
-      bgColor: "from-yellow-500 to-cyan-500",
-      github: "https://github.com/iamaparnaojha/spotify_clonegdsc",
-      demo: "https://iamaparnaojha.github.io/spotify_clonegdsc/" 
-    }
-  ];
+function ProjectLinks({ project }) {
+  return (
+    <div className="flex flex-wrap gap-4 text-sm">
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${project.title} on GitHub`}
+        className="underline decoration-[color:var(--line)] underline-offset-4 hover:decoration-[color:var(--violet)]"
+      >
+        GitHub
+      </a>
+      {project.demo ? (
+        <a
+          href={project.demo}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`${project.title} live demo`}
+          className="underline decoration-[color:var(--line)] underline-offset-4 hover:decoration-[color:var(--violet)]"
+        >
+          Live Demo
+        </a>
+      ) : null}
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [filter, setFilter] = useState("All");
+  const [active, setActive] = useState(null);
+  const dialogRef = useRef(null);
+  const openerRef = useRef(null);
+  const titleId = useId();
+
+  const visible = filter === "All" ? projects : projects.filter((project) => project.category === filter);
+  const featured = visible.filter((project) => project.featured);
+  const supporting = visible.filter((project) => !project.featured);
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog || !active) return undefined;
+    if (!dialog.open) dialog.showModal();
+    const onClose = () => {
+      setActive(null);
+      openerRef.current?.focus();
+    };
+    dialog.addEventListener("close", onClose);
+    return () => dialog.removeEventListener("close", onClose);
+  }, [active]);
+
+  const openProject = (project, event) => {
+    openerRef.current = event.currentTarget;
+    setActive(project);
+  };
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-            Featured Projects
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            A selection of my recent work, ranging from AI assistants to full-stack platforms and creative web experiments.
-          </p>
-        </motion.div>
+    <section id="projects" className="section">
+      <div className="wrap">
+        <SectionHeading index="03" kicker="Projects" title="Selected work.">
+          Three featured systems, then the rest of the work — each with its repository, and a live demo where one exists.
+        </SectionHeading>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="glass rounded-3xl overflow-hidden group hover:bg-white/10 transition-all duration-500 flex flex-col h-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
+        <div className="mb-10 flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
+          {projectFilters.map((item) => (
+            <button
+              key={item}
+              type="button"
+              role="tab"
+              aria-selected={filter === item}
+              className={`chip skill-tab ${filter === item ? "" : "hover:border-[color:var(--violet)]"}`}
+              onClick={() => setFilter(item)}
             >
-              <div className={`h-2 w-full bg-gradient-to-r ${project.bgColor}`} />
-              
-              <div className="p-8 md:p-10 flex flex-col flex-grow">
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-3xl font-bold text-white group-hover:text-purple-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex space-x-3">
-                    <a 
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-white/5 rounded-full hover:bg-white/20 text-gray-400 hover:text-white transition-all shadow-inner"
-                      title="View Code"
-                    >
-                      <FaGithub className="text-2xl" />
-                    </a>
-                    <a 
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-white/5 rounded-full hover:bg-white/20 text-gray-400 hover:text-white transition-all shadow-inner"
-                      title="Live Demo"
-                    >
-                      <FaExternalLinkAlt className="text-xl" />
-                    </a>
-                  </div>
-                </div>
-
-                <p className="text-gray-400 leading-relaxed mb-8 flex-grow">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mt-auto">
-                  {project.tech.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-gray-300 tracking-wider group-hover:border-white/20 transition-all"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div> 
+              {item}
+            </button>
           ))}
         </div>
+
+        <div className="space-y-6">
+          {featured.map((project, index) => (
+            <article key={project.slug} className="panel grid overflow-hidden lg:grid-cols-2">
+              <div className={index % 2 === 1 ? "lg:order-2" : undefined}>
+                <Visual project={project} />
+              </div>
+              <div className="flex flex-col p-6 md:p-8">
+                <p className="kicker">{project.tagline}</p>
+                <h3 className="display mt-3 text-4xl md:text-5xl">
+                  {project.title}
+                  {project.aka ? <span className="mt-1 block text-xl italic text-[color:var(--muted)]">{project.aka}</span> : null}
+                </h3>
+                <p className="muted mt-4 flex-1">{project.summary}</p>
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {project.tech.slice(0, 6).map((tech) => (
+                    <li key={tech} className="chip">
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex flex-wrap items-center gap-4">
+                  <button type="button" className="btn btn-primary" onClick={(event) => openProject(project, event)}>
+                    View project
+                  </button>
+                  <ProjectLinks project={project} />
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {supporting.length > 0 ? (
+          <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {supporting.map((project) => (
+              <article key={project.slug} className="panel flex flex-col overflow-hidden">
+                <Visual project={project} />
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="text-xl text-ivory">
+                    {project.title}
+                    {project.aka ? <span className="text-[color:var(--muted)]"> · {project.aka}</span> : null}
+                  </h3>
+                  <p className="muted mt-2 flex-1 text-sm leading-relaxed">{project.summary}</p>
+                  <div className="mt-4 flex flex-wrap items-center gap-4">
+                    <button type="button" className="text-sm text-ivory underline underline-offset-4" onClick={(event) => openProject(project, event)}>
+                      Details
+                    </button>
+                    <ProjectLinks project={project} />
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : null}
+
+        {visible.length === 0 ? <p className="muted mt-8">Nothing in this category yet.</p> : null}
       </div>
+
+      {active ? (
+        <dialog
+          ref={dialogRef}
+          className="project-dialog"
+          aria-labelledby={titleId}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) event.currentTarget.close();
+          }}
+        >
+          <div className="max-h-[86vh] overflow-y-auto">
+            <Visual project={active} />
+            <div className="p-6 md:p-8">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="kicker">{active.tagline}</p>
+                  <h3 id={titleId} className="display mt-2 text-4xl md:text-5xl">
+                    {active.title}
+                  </h3>
+                  {active.aka ? <p className="mt-1 italic text-[color:var(--muted)]">Also known as {active.aka}</p> : null}
+                </div>
+                <button type="button" className="btn btn-ghost shrink-0" onClick={() => dialogRef.current?.close()}>
+                  Close
+                </button>
+              </div>
+              <p className="muted mt-5">{active.description}</p>
+              <ul className="mt-5 space-y-2 text-sm leading-relaxed text-ivory/90">
+                {active.features.map((feature) => (
+                  <li key={feature} className="border-t border-[color:var(--line)] pt-2">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {active.tech.map((tech) => (
+                  <li key={tech} className="chip">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6">
+                <ProjectLinks project={active} />
+              </div>
+            </div>
+          </div>
+        </dialog>
+      ) : null}
     </section>
   );
-};
-
-export default Projects;
+}

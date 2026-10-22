@@ -1,87 +1,43 @@
-import { motion } from 'framer-motion';
-import { FaEnvelope, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
+import { profile, profiles } from "../data/portfolio";
+import Magnetic from "./Magnetic";
 
-const Contact = () => {
-  const contacts = [
-    {
-      platform: "Email",
-      link: "mailto:ojhaaparna0@gmail.com",
-      icon: <FaEnvelope className="text-2xl" />,
-      username: "ojhaaparna0@gmail.com"
-    },
-    {
-      platform: "LinkedIn",
-      link: "https://www.linkedin.com/in/aparna-ojha-b124a72a9/",
-      icon: <FaLinkedin className="text-2xl" />,
-      username: "aparna-ojha"
-    },
-    {
-      platform: "GitHub",
-      link: "https://github.com/iamaparnaojha",
-      icon: <FaGithub className="text-2xl" />,
-      username: "iamaparnaojha"
-    },
-    {
-      platform: "Twitter",
-      link: "https://x.com/iamaparnaojha",
-      icon: <FaTwitter className="text-2xl" />,
-      username: "@iamaparnaojha"
-    }
-  ];
-
+export default function Contact() {
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-            Let's Collaborate
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
-            Have a project in mind or just want to say hello? My inbox is always open.
-          </p>
-        </motion.div>
+    <section id="contact" className="contact-band section">
+      <div className="wrap">
+        <p className="kicker mb-4">07 — Contact</p>
+        <h2 className="display text-[clamp(3rem,8vw,6.4rem)] leading-[0.92]">
+          Tell me what
+          <span className="italic"> you’re building.</span>
+        </h2>
+        <p className="mt-6 max-w-xl text-lg text-[#3f3a33]">
+          Recruiters, collaborators, and teams with a real problem — email is the direct line. I read it.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {contacts.map((contact, index) => (
-            <motion.a
-              key={index}
-              href={contact.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass p-8 rounded-[32px] flex flex-col items-center group hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 border border-white/5 hover:border-purple-500/30 shadow-xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-purple-500/10 transition-all duration-500">
-                <span className="text-purple-400 text-3xl group-hover:text-purple-300 transition-colors">
-                  {contact.icon}
-                </span>
-              </div>
-              
-              <h3 className="text-xl font-bold text-white mb-2">{contact.platform}</h3>
-              <p className="text-gray-400 text-center font-medium group-hover:text-gray-300 transition-colors">
-                {contact.username}
-              </p>
-              
-              <div className="mt-4 flex items-center text-purple-500 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                <span>Connect</span>
-                <svg className="w-4 h-4 ml-2 animate-bounce-x" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </motion.a>
-          ))}
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Magnetic className="btn btn-primary" href={`mailto:${profile.email}`}>
+            {profile.email}
+          </Magnetic>
+          <Magnetic className="btn border-[#1c1915] text-[#1c1915] hover:bg-[#1c1915] hover:text-[#efeae2]" href={profile.phoneHref}>
+            {profile.phone}
+          </Magnetic>
         </div>
+
+        <ul className="mt-10 grid gap-px bg-[#d9d3c8] sm:grid-cols-2 lg:grid-cols-3">
+          {profiles.map((item) => (
+            <li key={item.label} className="bg-[color:var(--paper)]">
+              <a
+                href={item.href}
+                className="flex min-h-24 flex-col justify-between px-4 py-4 transition-colors hover:bg-[#e7e1d8]"
+                {...(item.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
+              >
+                <span className="text-xs uppercase tracking-[0.18em] text-[#6d675e]">{item.label}</span>
+                <span className="mt-3 text-[#16140f]">{item.handle}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

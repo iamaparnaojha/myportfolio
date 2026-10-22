@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
-      container: {
-        center: true,
-        padding: '1rem',
-      },
       colors: {
-        primary: '#4F46E5',
-        secondary: '#7C3AED',
+        ink: "#08080a",
+        ivory: "#f4f0e8",
+        mute: "#b7b1a8",
+        violet: "#c9b8ff",
+        gold: "#e4c99a",
+      },
+      fontFamily: {
+        sans: ['"Segoe UI"', '"Avenir Next"', '"Helvetica Neue"', "sans-serif"],
+        display: ['"Iowan Old Style"', '"Palatino Linotype"', "Palatino", "Georgia", "serif"],
       },
     },
   },
   plugins: [],
-}
+};
